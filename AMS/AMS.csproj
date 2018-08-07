@@ -1,0 +1,1384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8BD112A-9426-4070-9994-04F770A55D59}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AMS</RootNamespace>
+    <AssemblyName>AMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="DLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharkDev.MVC, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharkTree.1.2.1.2\lib\SharkDev.MVC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharkDev.Web.Controls, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharkTree.1.2.1.2\lib\SharkDev.Web.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Accounts\AccountsAreaRegistration.cs" />
+    <Compile Include="Areas\Accounts\Controllers\AccountHomeController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\AccountOpeningController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\AccountReportsController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\BankPaymentController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\BankReceiptController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\CashPaymentController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\CashReceiptController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\DashboardsController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\ClosingController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\COAController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\JournalVoucherController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\tblPreferenceController.cs" />
+    <Compile Include="Areas\Accounts\Controllers\VoucherLogController.cs" />
+    <Compile Include="Areas\Accounts\Helpers\TreeView.cs" />
+    <Compile Include="Areas\Accounts\Models\C_Testing_.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\dbAMS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbAMS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\dbAMS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\dbAMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbAMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\fnGetStockSummaryPerItem_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\fnGetStockSummary_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\fnGetStockValue_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\SqlClass.cs" />
+    <Compile Include="Areas\Accounts\Models\tblClient.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\LedgerDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\LedgerForCons.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerForCons.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\LedgerForConsNew.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerForConsNew.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\LedgerForCons_Shaheen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerForCons_Shaheen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\LedgerSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\LedgerSummaryDet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerSummaryDet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\rptCashPrintVoucher.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashPrintVoucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\rptCashPrintVoucherBank.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashPrintVoucherBank.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\rptCashVoucher.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashVoucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\rptDebtorBalances_MCI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDebtorBalances_MCI.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\TrialBal6Eng.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrialBal6Eng.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\Accounts\Reports\TrialBalEng.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrialBalEng.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\SessionExpireAttribute.cs" />
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceAllDateWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWiseCons1_allSubAccounts_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWiseCons1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWiseConsMultiDate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWiseCons_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWiseForStockClosing1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWiseFromAccNo_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDateWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceDate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceForAgings_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceVoucherTypeWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalanceVoucherWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAccountBalance_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAgingAnalysisParties_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllAccountBalanceDateWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllAccountsBalance_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllBrokerCityWiseWithBalance_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllCustomerCityWiseWithBalanceCR_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllCustomerCityWiseWithBalance_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllCustomerCityWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemAverageRate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockDateWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockLedger_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyItemCityWiseSummary1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyItemCityWiseSummary_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyItemCityWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyItemWisePending_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyItemWisePurchase_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyItemWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyVoucherCityWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyWisePending_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyWisePurchase_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyWise_Loan_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAllItemStockPartyWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetAllLevelFromChartOfAccount1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetAllLevelFromChartOfAccountTEMP_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetBalanceFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetLevelFiveFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetLevelFourFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetLevelOneFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetLevelSixFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetLevelThreeFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetAssetLevelTwoFromChartOfAccount_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetBalanceSheet_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetBrokerRejection_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetChartOfAccountList_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetClosingLive1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetClosingLiveCopy_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetClosingLive_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetCOGSFIFOOrderbyItemCodeByStockDedication_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetCOGSOrderbyItemCodeByStockDedication_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetContractDetail_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetEmployeeList_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetIncomeStatement_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetItemAverageRateForSaleOnDate1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetItemAverageRate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetItemCurrentStockNoDesign_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetItemCurrentStock_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetItemPrice_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetItemStockOnDate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetLastFinClosingDate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetLastPurchaseRate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetLastTempClosingDate_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyLedgerAll_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyLedgerCon_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyLedgerJournalR_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyLedgerJournal_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyLedgerSummary_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyLedger_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPartyList_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetPayroll_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetProductionRecepie_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetProduction_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetProductList_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetProfitDetailCustomerWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetProfitDetailItemWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetProfitLoss_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetSaleAnalysis_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetSaleCashOfSaleMan_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetSaleGroupByitemFromallorderDetail_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetSaleRecovery3Dates_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetSaleSummaryConsolidated_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockConsumption_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockRateCalculation1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockRateCalculation_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockReceipt_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryFracnhise_Loan_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryFranchiseWise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryPerItemAllFranchPK_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryPerItemAllFranch_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryPerItem_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryStore_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryWithValueFracnhise1_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryWithValueFracnhise2PK_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryWithValueFracnhise2_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryWithValueFracnhise_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryWithValue_Raw_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummaryWithValue_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockSummary_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetStockTransfer_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetTrialaBalance_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetUnPostedVouchersDetail_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetUnPostedVouchers_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spGetYearlySale_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLeadingCustomer_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLineChart_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadAccountLedger_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadAllAccountsWithBalance_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadAllProduction_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadContractDetail_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadCurrency_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadExpenses_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadItemLedgerPK_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadItemLedger_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadLoanLedger_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadLostCustomers_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadMachine_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadPriceControls_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadProduction_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadSaleman_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadTransport_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadVoucher_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadVoucher_Sale_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadVoucher_VoucherNo_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadWarehouseInForm_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoadWarehouse_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoanPriceControls_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spLoanPriceControl_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spProductionPacking_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spTopProducts_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\spTopSaleMan_Result.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAccountMapping.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAccountOK.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAccountType.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderContractDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderContractMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderDetail_Contract.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderDetail_Loan.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderMaster_Contract.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderMaster_Loan.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblAllOrderProcessingRate.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblArea.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblBankDocForm.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCG.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblChartOfAccount.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCompany.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblContainer.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblContainerItem.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCountry.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCurrency.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCustomerAndSupplier.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCustomerFormDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblCuttingType.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblDesign.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblEForm.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblEmployeeLoan.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblEmployeeMgmt.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblFinancialClosing.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblFinancialPeriod.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblFinishGoodCosting.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblFormDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblFormMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblGatePass.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblGroupMgmt.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblInvType.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblItem.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblItemCompany.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblItemDesignProcessingRate.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblItemPacking.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblItemRate.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblKhata.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblLog.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblMachine.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblMachineEmb.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblMachineType.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblMciClosing.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblModule.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblMonthDaysDue.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPackaging.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPackingType.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPage.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPartnersDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPreference.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProcessing.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductCategory.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProduction.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionEMB.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionLog.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionPacking.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionShare.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblProductionTest.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPurchaseOrder.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPurchaseReturnDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblPurchaseReturnMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblReceipt.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblRecepieMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblRecepieTest.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblSaleAccount.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblSaleman.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblSaleManTarget.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblStatu.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblStockAdjustment.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblStockAdjustmentPK.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblStockDedication.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblStockRecord.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblSupplier.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTaxDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTaxMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTemp2017_11_16_18_08_16.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTempClosing.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTempTrial.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTest.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblTransport.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblType.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblUnitMgmt.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblUser.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblUserMgmt.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblUserRight.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblVolume.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblVoucherDetail.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblVoucherMaster.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\tblWarehouseMgmt.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwAllAccountBalance.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwAllBalance.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwAllOrdersSummary.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwAllPartiesWithHead.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwCOA.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwGetSalemanCashPayment.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwGetSalemanCashPaymentsMonthly.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwGreyCash.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwLostCustomer.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwPDCIn.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwPurchaseContract.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Accounts\Models\vwSaleContract.cs">
+      <DependentUpon>dbAMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Angular\menu_script.js" />
+    <Content Include="Angular\Module.js" />
+    <Content Include="Areas\Accounts\Angular\AccountOpening.js" />
+    <Content Include="Areas\Accounts\Angular\AccountReportRun.js" />
+    <Content Include="Areas\Accounts\Angular\BankPayment.js" />
+    <Content Include="Areas\Accounts\Angular\BankReceipt.js" />
+    <Content Include="Areas\Accounts\Angular\CashPayment.js" />
+    <Content Include="Areas\Accounts\Angular\CashReceipt.js" />
+    <Content Include="Areas\Accounts\Angular\Closing.js" />
+    <Content Include="Areas\Accounts\Angular\COA.js" />
+    <Content Include="Areas\Accounts\Angular\COAPopup.js" />
+    <Content Include="Areas\Accounts\Angular\COAPopupVoucher.js" />
+    <Content Include="Areas\Accounts\Angular\DashBoard.js" />
+    <Content Include="Areas\Accounts\Angular\JournalVoucher.js" />
+    <Content Include="Areas\Accounts\Angular\tblPreference.js" />
+    <Content Include="Areas\Accounts\Angular\VoucherLog.js" />
+    <Content Include="Areas\Accounts\Angular\_AccountLedger.js" />
+    <Content Include="Areas\Accounts\Angular\_AccountLedgerAcc.js" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\js\npm.js" />
+    <Content Include="Areas\Accounts\Content\Images\SharkDev.TreeView.png" />
+    <Content Include="Areas\Accounts\Content\SharkDev.TreeView.css" />
+    <Content Include="Areas\Accounts\Content\Site.css" />
+    <Content Include="Areas\Accounts\Content\themes\apple\bg.jpg" />
+    <Content Include="Areas\Accounts\Content\themes\apple\d.png" />
+    <Content Include="Areas\Accounts\Content\themes\apple\dot_for_ie.gif" />
+    <Content Include="Areas\Accounts\Content\themes\apple\style.css" />
+    <Content Include="Areas\Accounts\Content\themes\apple\throbber.gif" />
+    <Content Include="Areas\Accounts\Content\themes\classic\d.gif" />
+    <Content Include="Areas\Accounts\Content\themes\classic\d.png" />
+    <Content Include="Areas\Accounts\Content\themes\classic\dot_for_ie.gif" />
+    <Content Include="Areas\Accounts\Content\themes\classic\style.css" />
+    <Content Include="Areas\Accounts\Content\themes\classic\throbber.gif" />
+    <Content Include="Areas\Accounts\Content\themes\default-rtl\d.gif" />
+    <Content Include="Areas\Accounts\Content\themes\default-rtl\d.png" />
+    <Content Include="Areas\Accounts\Content\themes\default-rtl\dots.gif" />
+    <Content Include="Areas\Accounts\Content\themes\default-rtl\style.css" />
+    <Content Include="Areas\Accounts\Content\themes\default-rtl\throbber.gif" />
+    <Content Include="Areas\Accounts\Content\themes\default\d.gif" />
+    <Content Include="Areas\Accounts\Content\themes\default\d.png" />
+    <Content Include="Areas\Accounts\Content\themes\default\style.css" />
+    <Content Include="Areas\Accounts\Content\themes\default\throbber.gif" />
+    <Content Include="Areas\Accounts\Models\dbAMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbAMS.edmx</DependentUpon>
+      <LastGenOutput>dbAMS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Accounts\Models\dbAMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbAMS.edmx</DependentUpon>
+      <LastGenOutput>dbAMS.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\adsupplier.css" />
+    <Content Include="Content\AllButtonForms.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkBoxes.css" />
+    <Content Include="Content\custom-inputs.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\hover-min.css" />
+    <Content Include="Content\Images\SharkDev.TreeView.png" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\menu_style.css" />
+    <Content Include="Content\SharkDev.TreeView.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Accounts\Views\web.config" />
+    <EntityDeploy Include="Areas\Accounts\Models\dbAMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbAMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Accounts\Models\dbAMS.edmx.diagram">
+      <DependentUpon>dbAMS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Accounts\Views\AccountHome\AccountOpening.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\AccountReports.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\BankPayment.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\BankReceipt.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\CashPayment.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\CashReceipt.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\COA.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\JournalVoucher.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\tblPreference.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\VoucherLog.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\AccountLedger.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\FormCOA_PartialView.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_AddNewAccountPop.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_BankPayment.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_BankReceipt.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_CashPayment.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_CashReceipt.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_DashBoardPartialView.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_JournalVoucher.cshtml" />
+    <Content Include="Areas\Accounts\Views\UserControls\_ReportsPartialView.cshtml" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Accounts\Content\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Accounts\Helpers\TreeView.cs.pp" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Accounts\Views\AccountHome\ClosingAcc.cshtml" />
+    <Content Include="Areas\Accounts\Views\AccountHome\Dashboard.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\gcal.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locale-all.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\ng-grid-1.3.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SharkDev.treeView.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Accounts\Images\" />
+    <Folder Include="Areas\Accounts\Scripts\" />
+    <Folder Include="Areas\Accounts\Views\Shared\" />
+    <Folder Include="Content\Downloads\" />
+    <Folder Include="Content\fonts\" />
+    <Folder Include="Content\GridCSS\" />
+    <Folder Include="Content\Notifications\" />
+    <Folder Include="Content\select\" />
+    <Folder Include="Content\UploadedFolder\" />
+    <Folder Include="Content\Upload\" />
+    <Folder Include="CSS\" />
+    <Folder Include="fonts\font-awesome\" />
+    <Folder Include="Images\" />
+    <Folder Include="JQuery\" />
+    <Folder Include="JS\" />
+    <Folder Include="Scripts\calendar 2.2.7\" />
+    <Folder Include="Scripts\calendar\" />
+    <Folder Include="Scripts\GridScripts\" />
+    <Folder Include="Scripts\lib\" />
+    <Folder Include="Scripts\locale\" />
+    <Folder Include="SearchableDropdown\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\Accounts\Reports\LedgerDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\LedgerForCons.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerForCons.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\LedgerForConsNew.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerForConsNew.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\LedgerForCons_Shaheen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerForCons_Shaheen.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\LedgerSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\LedgerSummaryDet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerSummaryDet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\rptCashPrintVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashPrintVoucher.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\rptCashPrintVoucherBank.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashPrintVoucherBank.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\rptCashVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashVoucher.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\rptDebtorBalances_MCI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDebtorBalances_MCI.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\TrialBal6Eng.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TrialBal6Eng.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Accounts\Reports\TrialBalEng.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TrialBalEng.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20479</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/AmsSaas</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
